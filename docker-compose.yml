@@ -3,7 +3,6 @@ version: '3'
 services:
     php.dev:
         image: kytel0925/php:8.1-debian-apache-dev
-        container_name: performance-monitor-app
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:
@@ -16,7 +15,6 @@ services:
             - mysql
     node.dev:
         image: node:18-alpine
-        container_name: node-dev
         entrypoint: /app/etc/bin/yarn.dev.sh
         ports:
             - "5173:5173"
@@ -44,7 +42,6 @@ services:
             retries: 3
             timeout: 5s
     phpmyadmin:
-        container_name: phpmyadmin
         depends_on:
             - mysql
         image: phpmyadmin/phpmyadmin
