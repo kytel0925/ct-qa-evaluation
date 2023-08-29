@@ -1,66 +1,61 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Installation
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### Requirements
 
-## About Laravel
+In order to develop on this project please ensure that your machine fulfill the following requirements:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- [Git](https://laravel.com/docs/routing).
+- [Docker](https://laravel.com/docs/container) with [docker compose plugin](https://laravel.com/docs/session).
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+_You must also dominate this two technologies._
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This app is based on [laravel/jestream](https://jetstream.laravel.com/installation.html) application starter kit.
 
-## Learning Laravel
+### Steps
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- [Clone the repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+- create a .env file <code>cp .env.example .env</code> _tune any variable as you wish_
+- Boot the project with <code>docker compose up -d</code>
+- Enter into the dev container with <code>docker compose exec php.dev bash</code> and execute the following lines
+    - install the php dependencies <code>composer install</code>
+    - generate a new app key <code>php artisan key:generate</code>
+    - migrate the database <code>php artisan migrate</code>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Now enter into your [app](http://localhost) and you should see this page
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+![welcome](resources/markdown/images/jetstream.png)
 
-## Laravel Sponsors
+## Evaluation
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Part 1: Prepare the next scenarios with end to end testings
 
-### Premium Partners
+- Register a new test account
+- Login with the new test account
+- Load the user profile
+- Change the password
+- Logout
+- Login with the new password
+- Update my profile name
+- Check if the name was refreshed in the user actions toolbar
+- Logout
+- Login with an unregister account (validate the failure message)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+You SHOULD modify this file providing clear instructions on how to run your tests.
 
-## Contributing
+> **Warning**
+> All the dependencies for your testing should be declared into the docker-compose file, composer packages or node packages. The only required software in the evaluator pc will be git and docker, <b>nothing more will be installed.</b>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+As end to end frameworks selections you SHOULD choose:
+- [Cucumber](https://cucumber.io/)
+- [Cypress](https://www.cypress.io/)
+- [Selenium](https://www.selenium.dev/)
 
-## Code of Conduct
+### Part 2: with the Laravel test framework (PHPUnit)
+- access the index route and check if the response code is 200
+- seed a test user and submit a login check all the response codes
+- fake and array of 100 numbers, sort it test if the first and last elements are the same number
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
+_this part is optional and SHOULD be resolved with the best code practices_
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
