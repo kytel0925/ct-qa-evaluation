@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,13 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+// Prueba: Acceder a la ruta de índice y verifique si el código de respuesta es 200.
+
+//Route::get('/test', [TestController::class, 'verificarRuta']);
+
+//FIn prueba.
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -32,4 +40,4 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
-});
+}); 
